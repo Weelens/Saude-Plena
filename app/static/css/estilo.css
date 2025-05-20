@@ -1,0 +1,469 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+.caixa_login{
+    display: inline-flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 400px;
+    height: 240px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+.input_login{
+    display: flex;
+    width: 370px;
+    height: 20px;
+}
+.fundo_login{
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+}
+.titulo_label{
+    color: rgb(0, 0, 0);
+}
+.pai_button_medio{
+    display: flex;
+    padding: 1px;
+    width: 390px;
+    height: 40px;
+}
+.button_verde{
+    display: block;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+    width: 370px;
+    height: 30px;
+    background-color:green ;
+    text-align: center;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+.button_verde:hover{
+    background-color: rgb(20, 110, 20);
+    border: 2px solid rgb(20, 110, 20);
+    box-shadow: 10px 10px 15px rgba(20, 110, 20,0.3);
+}
+.pai_link_novo_usuario{
+    display: flex;
+    justify-content: right;
+}
+.link_novo_usuario{
+    color: blue;
+    margin-right: 10px;
+}
+.posi_logo{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 150px;
+}
+.logo{
+    display: block;
+    background-image: url(img/logo.png);
+    background-repeat:no-repeat;
+    background-size: contain;
+    width: 75px;
+    height: 75px;
+    z-index: 10000;
+    
+}
+.cabeca{
+    display: flex;
+    width: 100%;
+    background-color: green;
+    padding: 15px 20px;
+    color: white;
+    gap: 10px;
+}
+.titulo_header{
+    text-align: center;
+}
+.box_cabeca{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.nav_text{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.nav_bar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav_link{
+    list-style: none;
+    display: flex;
+    
+    align-items: center;
+    gap: 10px;
+}
+.nav_link li{
+    font-size: 16px;
+}
+
+.nav_link a {
+    border: 1px white;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.nav_link a:hover{
+    color: gray;
+}
+
+.principal{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    padding: 10px;
+}
+.pe{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    margin-top: 10%;
+    padding: 20px;
+}
+.icones_foot{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+.icone_home{
+    background-image: url(img/icon/home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.icone_insta{
+    background-image: url(img/icon/insta.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.text_foot h3{
+    text-align: center;
+}
+.outros_foot{
+    text-align: center;
+}
+.campo_add_ex{
+    display: flex;
+    padding: 10px;
+    margin-left: 10px;
+    justify-content: center;
+}
+.add_text_ex{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 25px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.add_text_ex:focus{
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+.add_number_ex{
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    width: 100px;
+    height: 25px;
+}
+.add_number_ex:focus{
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+.titulo_label_ex{
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.opcao_dia{
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    appearance: none;
+    background-image: url('img/icon/p_baixo.webp');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.opcao_dia:focus{
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+    background-image: url('img/icon/p_cima.png');
+}
+
+.campo_pdf_dicas{
+    display: flex;
+    justify-content: right;
+    padding: 3px;
+
+}
+.pdf_dicas{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: gray;
+    color: rgb(255, 255, 255);
+    padding: 6px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    
+}
+.pdf_dicas:hover{
+    background-color: rgb(54, 54, 54);
+}
+.bem_vindo{
+    margin-top: 2px;
+    padding: 12px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+}
+.trocar_pagina{
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-top:10px ;
+    color: black;
+}
+.trocar_pagina:hover{
+    background-color: rgb(192, 192, 192);
+}
+.corpo_tabela{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.tabela_ex{
+    width: 70%;
+    margin-top: 10px;
+    font-family: arial,sans-serif;
+}
+.linha{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+.header{
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.celula{
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.celula a{
+    color: blue;
+}
+
+.calendario_pai{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calen_semana{
+    display: flex;
+    gap: 5px;
+    list-style: none;
+    height: 120px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 3px solid rgb(255, 255, 255);
+}
+.calen_semana li{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(72, 167, 72);
+    border-radius: 20px;
+    font-size: 1.25rem;
+}
+.calen_semana li.atual{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    font-size: 1.65rem;
+    font-weight: 500;
+    background-color: rgb(72, 167, 72);
+    color: black;
+    border: 5px solid green;
+    transform: translateY(-70px);
+    cursor: pointer;
+}
+.calen_semana li.atual h1{
+    position: absolute;
+    transform: translateY(76px);
+    font-size: 1.6rem;
+    color: black;
+}
+.calen_semana li.atual h5{
+    position: absolute;
+    transform: translateY(102px);
+    font-size: .85rem;
+    color: black;
+    font-weight: 500;
+}
+.calen_semana li.atual h3{
+    position: absolute;
+    transform: translateY(-62px);
+    font-size: .85rem;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .nav_bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .titulo_header {
+    font-size: 28px;
+    margin: 0 20px;
+  }
+
+  .nav_link {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+@media (max-width:780px){
+    .nav_bar{
+        align-items: center;
+        flex-direction: column;
+    }
+    .campo_add_ex {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .add_text_ex, .add_number_ex, .opcao_dia {
+        font-size: 14px;
+    }
+
+    .footer_nav {
+        padding: 10px;
+    }
+}
+@media (max-width:480px){
+    .footer_nav{
+        font-size: 12px;
+    }
+    .icones_foot{
+        gap:15px;
+    }
+    .add_text_ex, .add_number_ex, .opcao_dia {
+        font-size: 12px;}
+
+    .posi_logo{
+        margin-right: 10px;
+    }
+    .nav_bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .nav_text {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav_link {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width:600px){
+    .calen_semana{
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 20px;
+        gap: 10px;
+    }
+    .calen_semana li{
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+        border-radius: 12px;
+        transform: none;
+        border: 3px solid green;
+    }
+
+    .calen_semana li.atual{
+        width: 70px;
+        height: 70px;
+        font-size: .9rem;
+        text-align: center;
+        border: 3px solid rgb(0, 83, 0);
+    
+    }
+    .calen_semana li.atual h1{
+        text-align: center;
+        width: 100%;
+        margin: 2px 0;
+        border-bottom: 3px solid green;
+    }
+    .calen_semana li.atual h3{
+        font-size: .8rem;
+        color: black;
+        transform: translateY(50px);
+    }
+    .calen_semana li.atual h5{
+        font-size: .8rem;
+        color: black;
+    }
+}

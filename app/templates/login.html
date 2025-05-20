@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Plena</title>
+    <link rel="icon" href="{{url_for('static', filename='css/img/logo.png')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+</head>
+<body>
+    <header style="
+            display: flex;
+            background-color: green;
+            padding: 4px;
+        ">
+        <div style="display: flex;
+                    width: 56%; 
+                    align-items: center; 
+                    justify-content: space-between; flex-wrap: wrap; ">
+        <a href="{{url_for('login')}}" class="logo"></a>
+        <br>
+        <h1 style="margin-left: 45%; color: white;">Saúde Plena</h1>
+        </div>
+    </header>
+    <div class="fundo_login">
+        <div class="caixa_login">
+            <form action="{{url_for('login')}}" method="post">
+                <label for="usuario" class='titulo_label'>Usuario</label>
+                <input type="text" name="usuario" id="usuario" required class="input_login">
+                <br>
+                <label for="senha" class="titulo_label">Senha</label>
+                <input type="password" name="senha" id="senha" required class="input_login">
+                <br>
+                <div class="pai_button_medio">
+                    <button type="submit" class="button_verde">Conectar-se</button>
+                </div>
+                <div class="pai_link_novo_usuario">
+                    <a href="{{url_for('novo_usuario')}}" class="link_novo_usuario">Novo usuario</a>
+                </div>
+                {%if erro %}
+                    <p style="color: red; font: italic;">{{erro}}</p>
+                {%endif%}
+            </form>
+        </div>
+    </div>
+</body>
+</html>

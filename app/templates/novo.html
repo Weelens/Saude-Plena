@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Plena</title>
+    <link rel="icon" href="{{url_for('static', filename='css/img/logo.png')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+</head>
+    <script src=""></script>
+    <title>Saúde Plena</title>
+</head>
+<body>
+    <header class="cabeca">
+        <div class="box_cabeca">
+            <div class="posi_logo">
+                <a href="{{url_for('home')}}" class="logo"></a>
+            </div>
+            <div class="nav_text">
+                <h1 class="titulo_header">Saúde Plena</h1>
+                <nav class="nav_bar">
+                    <ul class="nav_link">
+                        <li><a href="{{url_for('home')}}">Inicio</a></li>
+                        <li><a href="{{url_for('login')}}">Plano semanal</a></li>
+                        <a href="{{url_for('logout')}}">Logout↪</a>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="calendario_pai">
+        <ul class="calen_semana">
+            <li>SEG</li>
+            <li>TER</li>
+            <li>QUA</li>
+            <li>QUI</li>
+            <li>SEX</li>
+            <li>SAB</li>
+            <li>DOM</li>
+        </ul>
+    </div>
+    <br>
+    <div class="principal">
+        <div class="campo_add_ex">
+        <form action="{{url_for('novo')}}" method="post">
+            <label for="nome" class="titulo_label_ex">Nome:</label>
+            <input type="text" name="nome" id="nome" required class="add_text_ex">
+            <br>
+            <label for="series" class="titulo_label_ex">Series:</label>
+            <input type="number" name="series" id="series" max="100" required class="add_number_ex">
+            <br>
+            <label for="repeticoes" class="titulo_label_ex">Repetições:</label>
+            <input type="number" name="repeticoes" id="repeticoes" max="100" required class="add_number_ex">
+            <br>
+            <label for="dia" class="titulo_label_ex">Escolhe o dia da semana</label>
+            <select name="dia" id="dia" required class="opcao_dia">
+                <option value="">Selecione</option>
+                <option value="segunda">Segunda</option>
+                <option value="terca">Terça</option>
+                <option value="quarta">Quarta</option>
+                <option value="quinta">Quinta</option>
+                <option value="sexta">Sexta</option>
+                <option value="sabado">Sábado</option>
+                <option value="domingo">Domingo</option>
+            </select>
+            <div class="pai_button_medio">
+                <button type="submit" class="button_verde">Salvar</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    <footer class="pe">
+        <nav class="footer_nav">
+            <div class="icones_foot">
+            <a href="{{url_for('home')}}" class="icone_home"></a>
+            <a href="https://www.instagram.com/" class="icone_insta"></a>
+            </div>
+            <hr>
+            <br>
+            <div class="text_foot">
+                <h3>Observação importante:</h3>
+                <p id="alerta_txt">Carregando</p>
+                <br>
+                <hr>
+                <h3>Guia Prático de Exercícios Físicos para Todos os Níveis</h3>
+                <p id="dicas_ex">Carregando
+                </p>
+                <div class="campo_pdf_dicas">
+                    <a href="{{url_for('static',filename='arquivos/atividades.pdf')}}" target="_blank" class="pdf_dicas">atividades.pdf ⇩</a>
+                </div>
+                <hr>
+                <h3>Alimentação Saudável na Prática: Dicas e Rotinas</h3>
+                <p id="dicas_al">Carregando
+                </p>
+                <div class="campo_pdf_dicas">
+                    <a href="{{url_for('static',filename='arquivos/alimentacao.pdf')}}" target="_blank" class="pdf_dicas">alimentacao.pdf ⇩</a>
+                </div>
+            </div>
+            <hr>
+            <div class="outros_foot">
+                <p class="contato"> contato: (11)xxxxx-xxxx</p>
+                <p>Saúde Plena</p>
+                <p>Dev: @Willis</p>
+            </div>
+        </nav>
+    </footer>
+       
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
+</body>
+</html>

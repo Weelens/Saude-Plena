@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Plena</title>
+    <link rel="icon" href="{{url_for('static', filename='css/img/logo.png')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+</head>
+<body>
+    <header style="
+        display: flex;
+        background-color: green;
+        padding: 4px;
+    ">
+        <div style="display: flex;
+                    width: 56%; 
+                    align-items: center; 
+                    justify-content: space-between; flex-wrap: wrap; ">
+        <a href="{{url_for('login')}}" class="logo"></a>
+        <br>
+        <h1 style="margin-left: 45%; color: white;">Saúde Plena</h1>
+        </div>
+    </header>
+    <h1 class="bem_vindo">Novo usuario</h1>
+    <div class="fundo_login">
+        <div class="caixa_login">
+            <form action="{{url_for('novo_usuario')}}" method="post">
+                <label for="usuario" class='titulo_label'>Usuario</label>
+                <input type="text" name="usuario" id="usuario" required class="input_login">
+                <br>
+                <label for="senha" class="titulo_label">Senha</label>
+                <input type="password" name="senha" id="senha" required class="input_login">
+                <label for="confirm_senha">Confirmar Senha:</label>
+                <input type="password" name="confirm_senha" id="confirm_senha" required class="input_login">              
+                <br>
+                <div class="pai_button_medio">
+                    <button type="submit" class="button_verde">Cadastrar-se</button>
+                </div>
+
+                {%if erro %}
+                    <p style="color: red; font: italic;">{{erro}}</p>
+                {%endif%}
+            </form>
+        </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Plena</title>
+    <link rel="icon" href="{{url_for('static', filename='css/img/logo.png')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+</head>
+<body>
+    <header class="cabeca">
+        <div class="box_cabeca">
+            <div class="posi_logo">
+                <a href="{{url_for('home')}}" class="logo"></a>
+            </div>
+            <div class="nav_text">
+                <h1 class="titulo_header">Saúde Plena</h1>
+                <nav class="nav_bar">
+                    <ul class="nav_link">
+                        <li><a href="{{url_for('home')}}">Inicio</a></li>
+                        <li><a href="{{url_for('login')}}">Plano semanal</a></li>
+                        <li><a href="{{url_for('logout')}}">Logout↪</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="calendario_pai">
+        <ul class="calen_semana">
+            <li>SEG</li>
+            <li>TER</li>
+            <li>QUA</li>
+            <li>QUI</li>
+            <li>SEX</li>
+            <li>SAB</li>
+            <li>DOM</li>
+        </ul>
+    </div>
+    <br>
+    <p class="bem_vindo">Bem vindo {{lenda}}</p>
+
+    <div class="corpo_tabela">
+        <div class="tabela_ex">
+            <div class="linha header">
+                <div class="celula">Exercício</div>
+                <div class="celula">Séries</div>
+                <div class="celula">Repetições</div>
+            </div>
+
+            {%for exercicio in exercicios%}
+                <div class="linha">
+                    <div class="celula"><a href="https://www.youtube.com/results?search_query={{exercicio.nome | urlencode}}" target="_blank">{{exercicio.nome}}</a></div>
+                    <div class="celula">{{ exercicio.series }}</div>
+                    <div class="celula">{{ exercicio.repeticoes }}</div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+    <div style="display: flex; justify-content: right;">
+        <a href="{{url_for('novo')}}" class="trocar_pagina">Novo exercicio</a>
+    </div>
+    <footer class="pe">
+        <nav class="footer_nav">
+            <div class="icones_foot">
+            <a href="{{url_for('home')}}" class="icone_home"></a>
+            <a href="https://www.instagram.com/" class="icone_insta"></a>
+            </div>
+            <hr>
+            <br>
+            <div class="text_foot">
+                <h3>Observação importante:</h3>
+                <p id="alerta_txt">Carregando</p>
+                <br>
+                <hr>
+                <h3>Guia Prático de Exercícios Físicos para Todos os Níveis</h3>
+                <p id="dicas_ex">Carregando
+                </p>
+                <div class="campo_pdf_dicas">
+                    <a href="{{url_for('static',filename='arquivos/atividades.pdf')}}" target="_blank" class="pdf_dicas">atividades.pdf ⇩</a>
+                </div>
+                <hr>
+                <h3>Alimentação Saudável na Prática: Dicas e Rotinas</h3>
+                <p id="dicas_al">Carregando
+                </p>
+                <div class="campo_pdf_dicas">
+                    <a href="{{url_for('static',filename='arquivos/alimentacao.pdf')}}" target="_blank" class="pdf_dicas">alimentacao.pdf ⇩</a>
+                </div>
+            </div>
+            <hr>
+            <div class="outros_foot">
+                <p class="contato"> contato: (11)xxxxx-xxxx</p>
+                <p>Saúde Plena</p>
+                <p>Dev: @Willis</p>
+            </div>
+        </nav>
+    </footer>
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
+</body>
+</html>
