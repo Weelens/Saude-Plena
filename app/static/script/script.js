@@ -46,3 +46,12 @@ ativo.appendChild(h5);
 let h3 = document.createElement('h3')
 h3.innerHTML= ano;
 ativo.appendChild(h3);
+
+function confirmar() {
+    const diaSelecionado = document.getElementById('limpar').value;
+    if (!diaSelecionado) {
+        alert("Por favor, selecione algum dia da semana.");
+        return false;
+    }
+    return confirm(`Tem certeza que deseja apagar os dados de treino da ${diaSelecionado}? Essa ação não pode ser desfeita.`);
+}

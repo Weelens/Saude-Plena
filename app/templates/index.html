@@ -18,7 +18,7 @@
                 <nav class="nav_bar">
                     <ul class="nav_link">
                         <li><a href="{{url_for('home')}}">Inicio</a></li>
-                        <li><a href="{{url_for('login')}}">Plano semanal</a></li>
+                        <li><a href="{{url_for('semanal')}}">Plano semanal</a></li>
                         <li><a href="{{url_for('logout')}}">Logout↪</a></li>
                     </ul>
                 </nav>
@@ -42,29 +42,33 @@
     <div class="corpo_tabela">
         <div class="tabela_ex">
             <div class="linha header">
-                <div class="celula">Exercício</div>
-                <div class="celula">Séries</div>
-                <div class="celula">Repetições</div>
+                <div class="celula exercicio">Exercício</div>
+                <div class="celula series">Séries</div>
+                <div class="celula repeticoes">Repetições</div>
             </div>
 
             {%for exercicio in exercicios%}
                 <div class="linha">
-                    <div class="celula"><a href="https://www.youtube.com/results?search_query={{exercicio.nome | urlencode}}" target="_blank">{{exercicio.nome}}</a></div>
-                    <div class="celula">{{ exercicio.series }}</div>
-                    <div class="celula">{{ exercicio.repeticoes }}</div>
+                    <div class="celula exercicio "><a href="https://www.youtube.com/results?search_query=como+fazer+{{exercicio.nome | urlencode}}" target="_blank">{{exercicio.nome}}</a></div>
+                    <div class="celula series traco">{{ exercicio.series }}</div>
+                    <div class="celula repeticoes traco">{{ exercicio.repeticoes }}</div>
                 </div>
             {%endfor%}
         </div>
     </div>
     <div style="display: flex; justify-content: right;">
-        <a href="{{url_for('novo')}}" class="trocar_pagina">Novo exercicio</a>
+        <a href="{{url_for('novo')}}" class="trocar_pagina">Gerar exercicio manual</a>
     </div>
+    <div style="display: flex; justify-content: right;">
+            <a href="{{url_for('home')}}" class="trocar_pagina">Gerar Treino Automatico</a>
+        </div>
     <footer class="pe">
         <nav class="footer_nav">
             <div class="icones_foot">
             <a href="{{url_for('home')}}" class="icone_home"></a>
             <a href="https://www.instagram.com/" class="icone_insta"></a>
             </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd89yUx8hXU6UJlQiFLQ_O5_J84BVcgwQQ9CfcYacasBqvI3g/viewform?usp=dialog">Avalie o site.</a>
             <hr>
             <br>
             <div class="text_foot">
@@ -90,7 +94,7 @@
             <div class="outros_foot">
                 <p class="contato"> contato: (11)xxxxx-xxxx</p>
                 <p>Saúde Plena</p>
-                <p>Dev: @Willis</p>
+                <p>Dev: @Weelens</p>
             </div>
         </nav>
     </footer>

@@ -79,6 +79,7 @@ def logout():
     session.pop('usuario',None)
     return redirect (url_for('login'))
 
+
 @app.route('/inicio', methods=['GET','POST'])
 def home():
     if 'usuario' not in session:
@@ -94,13 +95,58 @@ def home():
     print('\n\n\n',usuario_id)
     cursor.execute("SELECT * FROM exercicios WHERE usuario_id = %s and dia = %s",(usuario_id,dia,))
     exercicios = cursor.fetchall()
-    print(exercicios)
-
 
     return render_template('index.html',lenda = SNLenda, exercicios=exercicios)
 
+@app.route('/plano_semanal',methods=['GET','POST'])
+def semanal():
+    if 'usuario' not in session:
+        return redirect(url_for('login'))
+        
+    usuario_id = session['usuario_id']
+    cursor.execute("SELECT * FROM exercicios WHERE usuario_id = %s",(usuario_id,))
+    exercicios = cursor.fetchall()
+    print(exercicios)
+    dados = exercicios
+    treinos = {}
+    for i in dados:
+        id_,nome,series,repeticoes,dia,usuario_id = i
+        if dia not in treinos:
+            treinos[dia] = []
+        treinos[dia].append({
+            "id":id_,
+            "nome": nome,
+            "series": series,
+            "repeticoes":repeticoes
+        })
+    ordem_dias = ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo"]
+
+    treinos_ok = {dia: treinos.get(dia, []) for dia in ordem_dias}
+    print('\n\n\n',treinos)
+
+    return render_template('plano_semanal.html', treinos=treinos_ok)
+
+@app.route('/limpar_treino', methods= ['GET','POST'])
+def limpar_dados():
+    if 'usuario' not in session:
+        return redirect(url_for('login'))
+
+    usuario_id = session['usuario_id']
+    if request.method == 'POST':
+        dia = request.form['limpar']
+        try:
+            cursor.execute("DELETE FROM exercicios WHERE usuario_id=%s AND dia=%s",(usuario_id,dia))
+            conexao.commit()
+        except Exception as e:
+            conexao.rollback()
+
+    return render_template('limpar_dados.html')
+
 @app.route('/novo_exercicio', methods = ['GET','POST'])
 def novo():
+    if 'usuario' not in session:
+        return redirect(url_for('login'))
+
     if request.method == 'POST':
         nome = request.form['nome']
         series = request.form['series']

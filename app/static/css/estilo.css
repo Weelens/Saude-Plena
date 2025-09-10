@@ -46,7 +46,7 @@ html, body {
     border-radius: 5px;
     padding: 5px;
     margin: 2px;
-    width: 370px;
+    width: 390px;
     height: 30px;
     background-color:green ;
     text-align: center;
@@ -210,6 +210,37 @@ html, body {
     margin-top: 10px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.corpo_limpar{
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.caixa_selecao{     
+    padding: 5px;      
+    width: 400px;
+    justify-content: center;
+}
+.caixa_selecao .opcao_dia{
+    height: 10%;
+}
+.pai_button_vermelho{
+    display: flex;
+}
+.button_vermelho{
+    display: block;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+    width: 100px;
+    height: 30px;
+    background-color:red ;
+    text-align: center;
+    cursor: pointer;
+}
+.button_vermelho:hover{
+    background-color: rgb(255, 23, 23);
+    border: 2px solid rgb(197, 0, 0);
+}
 .opcao_dia{
     width: 100%;
     padding: 12px 15px;
@@ -258,6 +289,7 @@ html, body {
     background-color: rgb(54, 54, 54);
 }
 .bem_vindo{
+    user-select: none;
     margin-top: 2px;
     padding: 12px;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
@@ -280,26 +312,43 @@ html, body {
     justify-content: center;
 }
 .tabela_ex{
-    width: 70%;
+    width: 50%;
     margin-top: 10px;
     font-family: arial,sans-serif;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 12px;
+    padding-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 .linha{
     display: flex;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(170, 170, 170);
 }
 .header{
-    background-color: #f2f2f2;
+    background-color: rgb(55, 163, 55);
     font-weight: bold;
+    color: #ffffff;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px ;
 }
 .celula{
     flex: 1;
     padding: 6px;
-    border: 1px solid #ddd;
     text-align: center;
 }
+.celula.traco{
+    border-left: 0.5px solid rgb(170, 170, 170);
+}
+
 .celula a{
-    color: blue;
+    color: #2b9348;
+    text-decoration: none;
+    font-weight: bold;
+}
+.celula a:hover{
+    text-decoration: underline;
+    color: #007f5f;
 }
 
 .calendario_pai{
@@ -319,6 +368,7 @@ html, body {
     border: 3px solid rgb(255, 255, 255);
 }
 .calen_semana li{
+    user-select: none;
     width: 80px;
     height: 80px;
     display: flex;
@@ -327,6 +377,11 @@ html, body {
     background-color: rgb(72, 167, 72);
     border-radius: 20px;
     font-size: 1.25rem;
+    transition: 0.2s;
+}
+.calen_semana li:hover{
+    background-color: rgb(85, 177, 85);
+    transform: translateY(-5px);
 }
 .calen_semana li.atual{
     position: relative;
@@ -359,6 +414,51 @@ html, body {
     font-size: .85rem;
     color: rgb(255, 255, 255);
     font-weight: 500;
+}
+.calen_semana li.atual:hover{
+    background-color: rgb(85, 177, 85);
+    transform: translateY(-75px);
+}
+
+.corpo_tabela_semanal{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.tabela_semanal{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 180px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+.tabela_semanal:hover{
+    transform: translateY(-5px);
+    background-color: #eeeeee;
+}
+.tabela_semanal h2{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+.celula_semanal{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.item_celula{
+    font-size: 14px;
+    padding: 5px;
+    border: 0.3px solid gray;
+    border-radius: 6px;
 }
 
 @media (min-width: 768px) {
@@ -435,17 +535,17 @@ html, body {
         gap: 10px;
     }
     .calen_semana li{
-        width: 60px;
-        height: 60px;
-        font-size: 1rem;
+        width: 38px;
+        height: 38px;
+        font-size: 0.8rem;
         border-radius: 12px;
         transform: none;
         border: 3px solid green;
     }
 
     .calen_semana li.atual{
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
         font-size: .9rem;
         text-align: center;
         border: 3px solid rgb(0, 83, 0);
@@ -466,4 +566,11 @@ html, body {
         font-size: .8rem;
         color: black;
     }
+}
+
+@media (max-width:600px){
+    .tabela_ex{
+        width: 80%;
+    }
+
 }

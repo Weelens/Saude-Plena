@@ -7,9 +7,6 @@
     <link rel="icon" href="{{url_for('static', filename='css/img/logo.png')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
 </head>
-    <script src=""></script>
-    <title>Saúde Plena</title>
-</head>
 <body>
     <header class="cabeca">
         <div class="box_cabeca">
@@ -21,7 +18,7 @@
                 <nav class="nav_bar">
                     <ul class="nav_link">
                         <li><a href="{{url_for('home')}}">Inicio</a></li>
-                        <li><a href="{{url_for('semanal')}}">Plano semanal</a></li>
+                        <li><a href="{{url_for('login')}}">Plano semanal</a></li>
                         <a href="{{url_for('logout')}}">Logout↪</a>
                     </ul>
                 </nav>
@@ -40,44 +37,35 @@
         </ul>
     </div>
     <br>
-    <div class="principal">
-        <div class="campo_add_ex">
-            <form action="{{url_for('novo')}}" method="post">
-                <label for="nome" class="titulo_label_ex">Nome:</label>
-                <input type="text" name="nome" id="nome" required class="add_text_ex">
-                <br>
-                <label for="series" class="titulo_label_ex">Series:</label>
-                <input type="number" name="series" id="series" max="100" required class="add_number_ex">
-                <br>
-                <label for="repeticoes" class="titulo_label_ex">Repetições:</label>
-                <input type="number" name="repeticoes" id="repeticoes" max="100" required class="add_number_ex">
-                <br>
-                <label for="dia" class="titulo_label_ex">Escolhe o dia da semana</label>
-                <select name="dia" id="dia" required class="opcao_dia">
+
+    <form action="{{url_for('limpar_dados')}}" method="post" onsubmit="return confirmar()">
+        <div class="corpo_limpar">
+            <div class="caixa_selecao">
+                <label for="limpar">Selecione o dia da semana para apagar os dados de treino</label>
+                <select name="limpar" id="limpar" class="opcao_dia" required>
                     <option value="">Selecione</option>
                     <option value="segunda">Segunda</option>
                     <option value="terca">Terça</option>
                     <option value="quarta">Quarta</option>
                     <option value="quinta">Quinta</option>
                     <option value="sexta">Sexta</option>
-                    <option value="sabado">Sábado</option>
+                    <option value="sabado">Sabado</option>
                     <option value="domingo">Domingo</option>
                 </select>
-                <div class="pai_button_medio">
-                    <button type="submit" class="button_verde">Salvar</button>
-                </div>
-            </form>
+            </div>
         </div>
-        <div style="display: flex; justify-content: right;">
-            <a href="{{url_for('home')}}" class="trocar_pagina">Gerar Treino Automatico</a>
+        <div class="pai_button_vermelho">
+            <button type="submit" class="button_vermelho">Apagar dados</button>
         </div>
-    </div>
+    </form>
+
     <footer class="pe">
         <nav class="footer_nav">
             <div class="icones_foot">
             <a href="{{url_for('home')}}" class="icone_home"></a>
             <a href="https://www.instagram.com/" class="icone_insta"></a>
             </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd89yUx8hXU6UJlQiFLQ_O5_J84BVcgwQQ9CfcYacasBqvI3g/viewform?usp=dialog">Avalie o site.</a>
             <hr>
             <br>
             <div class="text_foot">
@@ -86,8 +74,7 @@
                 <br>
                 <hr>
                 <h3>Guia Prático de Exercícios Físicos para Todos os Níveis</h3>
-                <p id="dicas_ex">Carregando
-                </p>
+                <p id="dicas_ex">Carregando</p>
                 <div class="campo_pdf_dicas">
                     <a href="{{url_for('static',filename='arquivos/atividades.pdf')}}" target="_blank" class="pdf_dicas">atividades.pdf ⇩</a>
                 </div>
@@ -107,7 +94,6 @@
             </div>
         </nav>
     </footer>
-       
     <script src="{{ url_for('static', filename='script/script.js') }}"></script>
 </body>
 </html>
