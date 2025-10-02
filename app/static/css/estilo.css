@@ -46,7 +46,7 @@ html, body {
     border-radius: 5px;
     padding: 5px;
     margin: 2px;
-    width: 390px;
+    width: 370px;
     height: 30px;
     background-color:green ;
     text-align: center;
@@ -338,6 +338,7 @@ html, body {
     text-align: center;
 }
 .celula.traco{
+    
     border-left: 0.5px solid rgb(170, 170, 170);
 }
 
