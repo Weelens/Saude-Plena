@@ -82,4 +82,4 @@ python app.py
 ```
 
 # Autor
-- Desenvolvido por Weelens (@Willis)
+- Desenvolvido por @Weelens
