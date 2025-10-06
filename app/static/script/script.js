@@ -29,6 +29,7 @@ let meses = [' Janeiro ' ,
     ' Dezembro ']
 let data = new Date();
 let diaNumero = data.getDay();
+if (diaNumero === 0) diaNumero = 7;
 let dia = data.getDate();
 let mes = meses[data.getMonth()]
 let ano = data.getFullYear()
